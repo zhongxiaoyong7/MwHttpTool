@@ -35,11 +35,13 @@ namespace Mw.HttpTool.Winform
             //string strJson= string.Format( "[{\"floors\": [{\"map\": \"f1-123.png\", \"name\": \"test\", \"floor\": \"1\"}], \"name\": \"test\", \"id\": \"852801\"}, {\"floors\": [{\"map\": \"f0-floorone.png\", \"name\": \"FOne\", \"floor\": \"0\"}],\"name\": \"LibFloor\", \"id\": \"765026\"},{\"floors\": [{\"map\": \"f0-home.png\", \"name\": \"house\", \"floor\": \"0\"}], \"name\": \"Home\", \"id\": \"810320\"}]");
 
             //BindTreeView(treeView1, strJson);
+            //BindTreeView(treeView1, strJson);
 
             SQLiteConnectionStringBuilder sb = new SQLiteConnectionStringBuilder();
             sb.DataSource = Directory.GetCurrentDirectory() + @"\HttpTool.db";
 
             SQLiteConnection con = new SQLiteConnection(sb.ToString());
+            //SQLiteConnection con = new SQLiteConnection(sb.ToString());
             con.Open();
 
             string sql = "select * from RequestLog order by UpdateTime desc limit 0,100";
