@@ -28,6 +28,11 @@ namespace Mw.HttpTool.Winform
         //http://blog.sina.com.cn/s/blog_a3e16b1101013z3i.html 窗体初始化ComboBox触发三次
         int mcbHistoryCount = 0;
 
+        //调试"
+        string dbDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug", "") + @"\DB\HttpTool.db";
+        //发布
+        //string dbDirectory = Directory.GetCurrentDirectory() + @"\HttpTool.db";
+
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +43,12 @@ namespace Mw.HttpTool.Winform
             //BindTreeView(treeView1, strJson);
 
             SQLiteConnectionStringBuilder sb = new SQLiteConnectionStringBuilder();
-            sb.DataSource = Directory.GetCurrentDirectory() + @"\HttpTool.db";
+
+            
+            sb.DataSource = dbDirectory;
+
+           
+           
 
             SQLiteConnection con = new SQLiteConnection(sb.ToString());
             //SQLiteConnection con = new SQLiteConnection(sb.ToString());
@@ -350,7 +360,7 @@ namespace Mw.HttpTool.Winform
             if (mcbHistoryCount == 2)
             {
                 SQLiteConnectionStringBuilder sb = new SQLiteConnectionStringBuilder();
-                sb.DataSource = Directory.GetCurrentDirectory() + @"\HttpTool.db";
+                sb.DataSource = dbDirectory;
                 SQLiteConnection con = new SQLiteConnection(sb.ToString());
                 con.Open();
 
@@ -435,7 +445,7 @@ namespace Mw.HttpTool.Winform
             smartThreadPool.Shutdown();
 
             SQLiteConnectionStringBuilder sb = new SQLiteConnectionStringBuilder();
-            sb.DataSource = Directory.GetCurrentDirectory() + @"\HttpTool.db";
+            sb.DataSource = dbDirectory;
             SQLiteConnection con = new SQLiteConnection(sb.ToString());
             con.Open();
             string sql = "select * from RequestLog where Url='" + mtbUrl.Text.Trim() + "'";
