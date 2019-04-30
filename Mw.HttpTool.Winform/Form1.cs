@@ -46,12 +46,9 @@ namespace Mw.HttpTool.Winform
 
             
             sb.DataSource = dbDirectory;
-
-           
            
 
             SQLiteConnection con = new SQLiteConnection(sb.ToString());
-            //SQLiteConnection con = new SQLiteConnection(sb.ToString());
             con.Open();
 
             string sql = "select * from RequestLog order by UpdateTime desc limit 0,100";
