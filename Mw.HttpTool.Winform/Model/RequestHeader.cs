@@ -12,5 +12,6 @@ namespace Mw.HttpTool.Model
         public string Key { get; set; }
         public string Value { get; set; }
         public int RequestLogID { get; set; }
+        //public 
     }
 }
